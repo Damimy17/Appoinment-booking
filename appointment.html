@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 25px;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .success {
+      display: none;
+      background: #d4edda;
+      padding: 12px;
+      border-left: 4px solid #28a745;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Book an Appointment</h2>
+
+    <div class="success" id="successMessage">
+      Your appointment has been booked!
+    </div>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email">
+
+    <label for="service">Choose Service</label>
+    <select id="service">
+      <option>Haircut</option>
+      <option>Braids</option>
+      <option>Pedicure</option>
+      <option>Manicure</option>
+      <option>Beard Grooming</option>
+    </select>
+
+    <label for="date">Select Date</label>
+    <input type="date" id="date">
+
+    <label for="time">Select Time</label>
+    <input type="time" id="time">
+
+    <label for="notes">Notes (Optional)</label>
+    <textarea id="notes" rows="3"></textarea>
+
+    <button onclick="book()">Book Appointment</button>
+  </div>
+
+  <script>
+    function book() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+
+      if (!name || !email || !date || !time) {
+        alert("Please fill all required fields!");
+        return;
+      }
+
+      document.getElementById("successMessage").style.display = "block";
+    }
+  </script>
+</body>
+</html>
